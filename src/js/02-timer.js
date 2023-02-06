@@ -38,6 +38,9 @@ startBtn.addEventListener('click', () => {
     const diff = fp.selectedDates[0] - new Date();
     if (diff >= 0) {
       convertMs(diff);
+    } if (diff < 1000) {
+      Notiflix.Notify.success('The time is over. Refresh the page and input new Date');
+      clearInterval(timerId);
     }
     fp._input.disabled = true;
   }, 1000);
